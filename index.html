@@ -8,22 +8,22 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
-<body class="m-5">
-    <div class="border border-black m-5 p-5 rounded-4">
+<body class="m-5 bg-light text-white">
+    <div class="border border-black m-5 p-5 rounded-4 bg-secondary">
         <h1 class="text-center">JavaScript Quiz!</h1>
         <div class="d-flex justify-content-between">
-            <p class="m-2" id="">Highscore:</p>
-            <p class="m-2" id="timer"></p>
+            <h3 class="m-2" id="">Highscore:</h3>
+            <h3 class="m-2" id="timer"></h3>
         </div>
-        <p class="p-3" id="question">""</p>
-        <p class="p-3" id="answerA">""</p>
-        <p class="p-3" id="answerB">""</p>
-        <p class="p-3" id="answerC">""</p>
-        <p class="p-3" id="answerD">""</p>
-        
+        <h5 class="p-3" id="question">""</h5>
+        <div class="">
+        <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerA">""</button>
+        <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerB">""</button>
+        <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerC">""</button>
+        <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerD">""</button>
+        </div>
         <div class="d-flex justify-content-evenly m-5">
-        
-            <button id="submitButton" class="border border-black m-3 p-3 rounded-4">Submit</button>
+            <button id="submitButton" class="border border-white  btn btn-secondary btn-lg">Submit</button>
         </div>
     </div>
     <script src="script.js"></script>

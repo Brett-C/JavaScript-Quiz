@@ -20,24 +20,17 @@ function countdown() {
 
 //event listeners
 
-document.getElementById("submitButton").addEventListener("click", function () {
-    alert('hi');
-});
+document.getElementById("answerA").addEventListener("click", answerHandles);
+document.getElementById("answerB").addEventListener("click", answerHandles);
+document.getElementById("answerC").addEventListener("click", answerHandles);
+document.getElementById("answerD").addEventListener("click", answerHandles);
 
+function answerHandles() {
+    nextQuestion();
+    console.log(this);
+    
+}
 
-
-// question one: Question
-
-// A
-// B
-// C
-// D
-
-// if {
-//     // answer A is chosen, add 5 points to score
-// } else {
-//     // add 0 points to score && timeLeft - 5
-// };
 
 
 const questions = [
@@ -101,3 +94,5 @@ function renderQuestion (index) {
     answerElC.textContent = currentQuestion.answers[2];
     answerElD.textContent = currentQuestion.answers[3];
 };
+
+
