@@ -1,7 +1,6 @@
-//Timer
 let timeLeft = 60;
 const time = document.getElementById('timer');
-const timerId = setInterval(countdown, 1000);
+let timerId;
 let questionEl = document.getElementById('question');
 let answerElA = document.getElementById('answerA');
 let answerElB = document.getElementById('answerB');
@@ -9,20 +8,44 @@ let answerElC = document.getElementById('answerC');
 let answerElD = document.getElementById('answerD');
 let scoreEl = document.getElementById('score');
 let totalScore = 0;
+let startEl = document.getElementById('start');
+let highscoreEl = document.getElementById('highscore');
+let quizEl = document.getElementById('quiz');
+
+
+//////////////////////////////////////////////////////////////////////////
 
 time.textContent = 'Timer: ' + timeLeft + ' seconds remaining';
+scoreEl.textContent = 'Score: ' + totalScore;
 
 function countdown() {
     if (timeLeft < 0) {
         clearInterval(timerId);
-        //insert run highscore page
+        submitScore();
     } else {
         time.textContent = 'Timer: ' + timeLeft + ' seconds remaining';
         timeLeft--;
     }
 }
 
+document.getElementById('btnStart').addEventListener("click", startQuiz);
 
+function startQuiz() {
+    timerId = setInterval(countdown, 1000);
+    startEl.classList.remove("d-block");
+    startEl.classList.add("d-none");
+    quizEl.classList.remove("d-none");
+    quizEl.classList.add("d-block");
+    countdown();
+
+}
+
+function submitScore() {
+    quizEl.classList.add("d-none");
+    highscoreEl.classList.remove("d-none");
+    highscoreEl.classList.add("d-block");
+    console.log('hi')
+};
 
 //event listeners
 
@@ -31,20 +54,17 @@ document.getElementById("answerB").addEventListener("click", answerHandles);
 document.getElementById("answerC").addEventListener("click", answerHandles);
 document.getElementById("answerD").addEventListener("click", answerHandles);
 
-scoreEl.textContent = 'Score: ' + totalScore;
+
 
 function answerHandles() {
     let answer = this.getAttribute('data-answer');
     if (answer === questions[questionIndex].correctAnswer) {
-        totalScore += 10 
+        totalScore += 10
         scoreEl.textContent = 'Score: ' + totalScore;
-        console.log('gz')
     } else {
         timeLeft -= 15
     }
     nextQuestion();
-    console.log(this);
-    console.log(answer);
 }
 
 
@@ -101,8 +121,13 @@ renderQuestion(questionIndex);
 
 function nextQuestion() {
     questionIndex++;
+    if (questionIndex == 5) {
+        submitScore();
+        return;
+    }
     renderQuestion(questionIndex);
-}
+
+};
 
 function renderQuestion(index) {
     let currentQuestion = questions[index];
@@ -111,6 +136,7 @@ function renderQuestion(index) {
     answerElB.textContent = currentQuestion.answers[1];
     answerElC.textContent = currentQuestion.answers[2];
     answerElD.textContent = currentQuestion.answers[3];
+
 };
 
 
