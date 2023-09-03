@@ -8,13 +8,18 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
-<body class="m-5 bg-light text-white">
+<body class="m-5 bg-light text-white text-center">
     <div class="border border-black m-5 p-5 rounded-4 bg-secondary" id="start">
-        <h1>JavaScript Quiz!</h1>
-        <p>This quiz has 5 questions. For every correct answer, you will gain 10 points. For every incorrect answer,
-            you will gain 0 points and lose 15 seconds off of your timer.</p>
-        <button class="p-3 border-1 border-white d-block btn btn-secondary btn-lg" id="btnStart">Start</button>
-
+        <h1 class="text-center">JavaScript Quiz!</h1>
+        <p class="text-center">This quiz has 5 questions. For every correct answer, you will gain 10 points. For every
+            incorrect answer,
+            you will gain 0 points and lose 15 seconds off of your timer.
+        </p>
+        
+        <div class="d-flex justify-content-evenly">
+            <button class="p-3 border-1 border-white d-block btn btn-secondary btn-lg" id="btnStart">Start</button>
+        </div>
+        <h5 class="d-block m-3" id="formerHighscore"></h5>
     </div>
     <div class="border border-black m-5 p-5 rounded-4 bg-secondary d-none" id="quiz">
         <h1 class="text-center">JavaScript Quiz!</h1>
@@ -22,7 +27,9 @@
             <h3 class="m-2" id="score"></h3>
             <h3 class="m-2" id="timer"></h3>
         </div>
-        <h5 class="p-3" id="question">""</h5>
+        <div class="d-flex justify-content-start">
+            <h5 class="p-3 display-4" id="question">""</h5>
+        </div>
         <div class="">
             <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerA" data-answer="A">""</button>
             <button class="p-3 border-0 d-block btn btn-secondary btn-lg" id="answerB" data-answer="B">""</button>
@@ -34,6 +41,12 @@
         </div>
     </div>
     <div class="border border-black m-5 p-5 rounded-4 bg-secondary d-none" id="highscore">
+        <form id="form">
+            <h3 class="m-2 text-center" id="hsScore"></h3>
+            <label for="hsInitials" class="text-center">Initials:</label>
+            <input type="text" id="hsInitials" name="hsInitials" class="text-center">
+        </form>
+        <button class="border border-white  btn btn-secondary btn-lg" id="btnReset">Reset</button>
 
     </div>
     <script src="script.js"></script>
