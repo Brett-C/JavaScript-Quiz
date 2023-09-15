@@ -1,7 +1,7 @@
 # JavaScript-Quiz
 
-link to quiz:
-
+link to quiz
+[Quiz!](https://brett-c.github.io/JavaScript-Quiz/)
 
 ## Description
 
