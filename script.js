@@ -18,11 +18,13 @@ let formEl = document.getElementById("form");
 let btnResetEl = document.getElementById("btnReset");
 let initials = localStorage.getItem('initials');
 let lsScore = localStorage.getItem('highscore');
+
 //////////////////////////////////////////////////////////////////////////
 
 time.textContent = 'Timer: ' + timeLeft + ' seconds remaining';
 scoreEl.textContent = 'Score: ' + totalScore;
-localStorage.getItem('highscore')
+
+fHighscore.textContent = 'Former Scorer:  ' + initials + ' Score: ' + lsScore;
 
 function countdown() {
     if (timeLeft < 0) {
@@ -45,12 +47,7 @@ function startQuiz() {
     highscoreEl.classList.remove("d-block");
     highscoreEl.classList.add("d-none");
     countdown();
-    localStorage.getItem('highscore');
-    localStorage.getItem('initials');
 };
-
-
-
 
 function toHighscore() {
     quizEl.classList.add("d-none");
@@ -95,6 +92,7 @@ function resetQuiz() {
 function renderScore() {
     scoreEl.textContent = 'Score: ' + totalScore;
 };
+
 function answerHandles() {
     let answer = this.getAttribute('data-answer');
     if (answer === questions[questionIndex].correctAnswer) {
@@ -105,10 +103,6 @@ function answerHandles() {
     }
     nextQuestion();
 }
-
-
-
-
 
 const questions = [
     {
